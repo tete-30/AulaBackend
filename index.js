@@ -1,7 +1,7 @@
 //configuração inicial
 const express = require('express')
 const app = express()
-const cors = requere('cors')
+const cors = require('cors')
 
 //configuração de banco
 const mongoose = require('mongoose')
@@ -45,10 +45,10 @@ app.get('/login', async (req, res) => {
 })
 
 app.post('/cadastro', async (req, res) => {
-    const {nome, cpf, enderecog, numero, complemento, cep, bairro, cidade, uf, telefone, celular, email, senha, confirmeSenha} = req.body
-    const login = {
-        nome, 
-        cpf, 
+    const {nome} = req.body
+    const cadastro = {
+        nome 
+      /*  cpf, 
         enderecog, 
         numero, 
         complemento, 
@@ -60,13 +60,13 @@ app.post('/cadastro', async (req, res) => {
         celular, 
         email, 
         senha, 
-        confirmeSenha,
+        confirmeSenha,*/
     }
 
     try {
-        await cadastro.create(login)
+        await Cadastro.create(cadastro)
         res.status(201).json({ Message: 'Cadastro realizado com suuuuuuuuuucesso!' })
-    } catch (console) {
+    } catch (error) {
         res.status(500).json({ error: error })
     }
 })
