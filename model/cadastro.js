@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Cadastro = mongoose.model('cadastro',{
     nome:String,
-   /* cpf:String,
+    cpf:String,
     endereco:String,
     numero:Number,
     complemento:String,
@@ -14,7 +14,7 @@ const Cadastro = mongoose.model('cadastro',{
     celular:String,
     email:String,
     senha:String,
-    confirmeSenha:String, */   
+    confirmeSenha:String,   
 })
 
 module.exports = Cadastro

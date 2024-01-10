@@ -45,11 +45,11 @@ app.get('/login', async (req, res) => {
 })
 
 app.post('/cadastro', async (req, res) => {
-    const {nome} = req.body
+    const {nome, cpf, endereco, numero, complemento, cep, bairro, cidade, uf, telefone, celular, email, senha, confirmeSenha} = req.body
     const cadastro = {
-        nome 
-      /*  cpf, 
-        enderecog, 
+        nome, 
+        cpf, 
+        endereco, 
         numero, 
         complemento, 
         cep, 
@@ -60,7 +60,7 @@ app.post('/cadastro', async (req, res) => {
         celular, 
         email, 
         senha, 
-        confirmeSenha,*/
+        confirmeSenha,
     }
 
     try {
