@@ -46,6 +46,19 @@ app.get('/login', async (req, res) => {
 
 app.post('/cadastro', async (req, res) => {
     const {nome, cpf, endereco, numero, complemento, cep, bairro, cidade, uf, telefone, celular, email, senha, confirmeSenha} = req.body
+
+    if (!nome || !cpf || !celular || !email || !senha || !confirmeSenha) {
+        // Se algum campo obrigatório estiver ausente, retorne uma resposta com erro
+        return res.status(400).json({ error: 'Todos os campos com "*" devem ser preenchidos.' });
+    }
+
+    // Verifica se as senhas coincidem
+    if (senha !== confirmeSenha) {
+        // Se as senhas não coincidirem, retorne uma resposta com erro
+        return res.status(400).json({ error: 'As senhas não coincidem.' });
+    }
+
+
     const cadastro = {
         nome, 
         cpf, 
